@@ -1,0 +1,71 @@
+package com.mycompany.diccionariojava;
+
+import java.util.*;
+
+/**
+ *
+ * @author gfox9
+ */
+public class DiccionarioJava {
+
+    public static void main(String[] args) {
+        // Crear un diccionario vacío llamado perro
+        HashMap<String, Object> perro = new HashMap<>();
+
+        // Añadir nombre, color, raza, patas y edad al diccionario perro
+        perro.put("nombre", "Firulais");
+        perro.put("color", "Cafe");
+        perro.put("raza", "Pastor Aleman");
+        perro.put("patas", 4);
+        perro.put("edad", 5);
+
+        // Crear un diccionario de estudiante
+        HashMap<String, Object> estudiante = new HashMap<>();
+        // Añadir nombre, apellido, sexo, edad, estado civil, habilidades, país, ciudad y dirección como claves del diccionario
+        estudiante.put("nombre", "Gabriel");
+        estudiante.put("apellido", "Fox");
+        estudiante.put("sexo", "Masculino");
+        estudiante.put("edad", 21);
+        estudiante.put("estado civil", "Soltero");
+        estudiante.put("habilidades", new ArrayList<String>());
+        estudiante.put("país", "Colombia");
+        estudiante.put("ciudad", "Cartagena");
+        estudiante.put("dirección", "Daniel Lemaitre Carrera 20 Calle 70");
+
+        // Obtener la longitud del diccionario del alumno
+        int longitudEstudiante = estudiante.size();
+        System.out.println("Longitud del diccionario del alumno: " + longitudEstudiante);
+
+        // Obtener el valor de las habilidades y comprobar el tipo de datos
+        ArrayList<String> habilidades = (ArrayList<String>) estudiante.get("habilidades");
+        System.out.println("Tipo de datos de las habilidades: " + habilidades.getClass().getSimpleName());
+
+        // Modificar los valores de las habilidades añadiendo una o dos habilidades
+        habilidades.add("programación");
+        habilidades.add("inglés");
+        estudiante.put("habilidades", habilidades);
+
+        // Obtener las claves del diccionario como una lista
+        ArrayList<String> clavesEstudiante = new ArrayList<>(estudiante.keySet());
+        System.out.println("Claves del diccionario del estudiante: " + clavesEstudiante);
+
+        // Obtener los valores del diccionario como una lista
+        ArrayList<Object> valoresEstudiante = new ArrayList<>(estudiante.values());
+        System.out.println("Valores del diccionario del estudiante: " + valoresEstudiante);
+
+        // Cambiar el diccionario a una lista de tuplas utilizando el método entrySet()
+        ArrayList<Map.Entry<String, Object>> listaTuplas = new ArrayList<>(estudiante.entrySet());
+        System.out.println("Diccionario convertido a lista de tuplas:");
+        for (Map.Entry<String, Object> entry : listaTuplas) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+
+        // Eliminar uno de los elementos del diccionario
+        estudiante.remove("edad");
+        System.out.println("Diccionario del estudiante después de eliminar 'edad': " + estudiante);
+
+        // Borrar uno de los diccionarios
+        estudiante.clear();
+        System.out.println("Diccionario del estudiante después de borrarlo: " + estudiante);
+    }
+}

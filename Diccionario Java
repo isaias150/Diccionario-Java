@@ -1,11 +1,5 @@
-package com.mycompany.diccionariojava;
-
 import java.util.*;
 
-/**
- *
- * @author gfox9
- */
 public class DiccionarioJava {
 
     public static void main(String[] args) {
